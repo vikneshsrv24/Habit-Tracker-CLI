@@ -1,10 +1,11 @@
 def add_habits():
     habit=input("Enter you habit: ")
     habits.append(habit)
-    return habits
+    print(f"{habits} added successfully")
 
 def view_habits():
-    print(habits)
+    for i in habits:
+        print(i)
 
 
 habits=[]
