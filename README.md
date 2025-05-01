@@ -1,3 +1,25 @@
+# A Terminal-based habit tracker using python
+A simple command-line application built in Python to help track your daily habits. Mark them as completed, view summaries, and stay consistent!
+
+---
+
+## 🔧 Features
+
+- ✅ Add daily habits you want to track
+- ✅ Mark habits as done
+- 📋 View a daily summary
+- 💾 (Optional) Save your progress to a JSON file
+- 🌈 Terminal color output using `colorama` (optional)
+
+---
+
+## 📦 Getting Started
+
+### Requirements:
+- Python 3.x
+- (Optional) `colorama` for colored CLI
+
+
 ## ✅ HABIT TRACKER CLI — TO-DO LIST
 
 You’ll follow this **step-by-step task list** to complete the project:
@@ -118,6 +140,6 @@ To learn:
 ---
 
 ## 🧑‍💻 Built By
-*VIKNESH S R* — aspiring backend/AI developer 🚀
+*VIKNESH S R* — aspiring Backend/AI developer 🚀
 
 ---
