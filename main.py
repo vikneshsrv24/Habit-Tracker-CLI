@@ -15,32 +15,46 @@ def view_habits():
         print(i)
 
 # TODO : Create a function that can summarize the habits.
-# TODO : Create a function to mark the habits that is done. 
-habits_type = {
+def summary():
+    for j in habits:
+        if status[j]==1:
+            print(f" {j} is Completed ✅")
+        else:
+            print(f" {j} is not Completed ❌...")
 
-}
- 
-habits=[]
+
+
+# TODO : Create a function to mark the habits that is done. 
+def update_status():
+    for habit in habits:
+        state=input(f"Did you complete {habit} today ? (type '1' for completed or '0' for not): ")
+        status[habit]=int(state)
+
 status={}
+
+# Main menu
+habits=[]
 loop=1
 while loop>0:
     print('\n'*1)
     print("1. Add Habits")
     print("2. View Habits")
-    print("3.Checklist")   
-    print("4. View Summary")        
-    option=int(input("What you wish to do ? [select from the options] : "))
+    print("3. Update Status")   
+    print("4. View Summary\n")        
+    option=int(input("What you wish to do ? [Type number from the options] : "))
     if option==1:
         add_habits()
+    
     elif option==2:
         view_habits()
+    
     elif option==3:
-        for i in habits:
-            print("Type '1' if the habit is completed or '0' for pending list ")
-            history=print(i).int(input(' : Completed or Pending : '))
-            # if history ==1:
-            #     status+=i
-            # else:
+        update_status()
+
+    elif option==4:
+        summary()
+    
     else:
         print("Not available input. Please run again !!!")
         loop=0
+        
