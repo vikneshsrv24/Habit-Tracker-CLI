@@ -14,7 +14,7 @@ def view_habits():
     for i in (habits):     
         print(i)
 
-# TODO : Create a function that can summarize the habits.
+#  Create a function that can summarize the habits.
 def summary():
     for j in habits:
         if status[j]==1:
@@ -24,7 +24,7 @@ def summary():
 
 
 
-# TODO : Create a function to mark the habits that is done. 
+#  Create a function to mark the habits that is done. 
 def update_status():
     for habit in habits:
         state=input(f"Did you complete {habit} today ? (type '1' for completed or '0' for not): ")
