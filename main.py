@@ -9,7 +9,7 @@ def add_habits():
     else:
         return
 
-# TODO : Remove none type from the loop.
+# Function to view habits
 def view_habits():
     for i in (habits):     
         print(i)
@@ -24,6 +24,7 @@ habits=[]
 status={}
 loop=1
 while loop>0:
+    print('\n'*1)
     print("1. Add Habits")
     print("2. View Habits")
     print("3.Checklist")   
