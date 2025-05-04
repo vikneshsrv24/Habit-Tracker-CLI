@@ -7,9 +7,11 @@ if os.path.exists("habits.json"):
         data=json.load(f)
         habits=data.get("habits",[])
         status=data.get("status",{})
+        streak=data.get("streak",{})
 else:
     habits=[]
     status={}
+    streak={}
 
 # Funtion to Add habits
 def add_habits():
@@ -22,8 +24,6 @@ def add_habits():
     if morehabit =='y':
         add_habits()
    
-    
-
 # Function to view habits
 def view_habits():
     for i in (habits):     
@@ -38,28 +38,39 @@ def summary():
             print(f" {j} is not Completed ❌...")
 
 
-
 #  Create a function to mark the habits that is done. 
 def update_status():
     for habit in habits:
         state=input(f"Did you complete {habit} today ? (type '1' for completed or '0' for not): ")
         status[habit]=int(state)
+        if state==1:
+            streak[habit]=streak.get(habit,0)+1
+        else:
+            streak[habit]=0
     save_data()
 
 # Saving data into json
 def save_data():
     with open("habits.json","w") as f:
-        json.dump({"habits":habits,"status":status},f,indent=4)
+        json.dump({"habits":habits,"status":status,"streak":streak},f,indent=4)
 
 # Clear saved JSON memory
 def clear_memory():
     habits.clear()
     status.clear()
+    streak.clear()
     save_data()
-    print("Memory cleared !")
+    print("All Memory cleared !")
+
+# View streaks
+def view_streaks():
+    for habit in habits:
+        print(f"{habit} --> Streak:{streak.get(habit,0*'🔥')}")
+
+
 
 # Main menu
-
+streak={}
 loop=1
 while loop>0:
     print('\n'*1)
@@ -67,7 +78,8 @@ while loop>0:
     print("2. View Habits")
     print("3. Update Status")   
     print("4. View Summary")
-    print("5. Clear Saved Habits\n")        
+    print("5. View Streaks")
+    print("6. Clear Saved Habits\n")        
     option=int(input("What you wish to do ? [Type number from the options] : "))
     if option==1:
         add_habits()
@@ -82,6 +94,8 @@ while loop>0:
         summary()
     
     elif option==5:
+        view_streaks()
+    elif option==6:
         clear_memory()
 
     else:
