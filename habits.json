@@ -1,20 +1,5 @@
 {
-    "habits": [
-        "swim",
-        "read",
-        "sleep",
-        "walk"
-    ],
-    "status": {
-        "swim": 1,
-        "read": 1,
-        "sleep": 1,
-        "walk": 1
-    },
-    "streak": {
-        "swim": 0,
-        "read": 0,
-        "sleep": 0,
-        "walk": 0
-    }
+    "habits": [],
+    "status": {},
+    "streak": {}
 }
