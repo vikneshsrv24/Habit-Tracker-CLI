@@ -42,11 +42,15 @@ def summary():
 def update_status():
     for habit in habits:
         state=input(f"Did you complete {habit} today ? (type '1' for completed or '0' for not): ")
-        status[habit]=int(state)
         if state==1:
             streak[habit]=streak.get(habit,0)+1
         else:
             streak[habit]=0
+        status[habit]=int(state)
+        # if state==1:
+        #     streak[habit]=streak.get(habit,0)+1
+        # else:
+        #     streak[habit]=0
     save_data()
 
 # Saving data into json
@@ -65,7 +69,7 @@ def clear_memory():
 # View streaks
 def view_streaks():
     for habit in habits:
-        print(f"{habit} --> Streak:{streak.get(habit,0*'🔥')}")
+        print(f"{habit} --> Streak:{streak.get(habit,0)*'🔥'}")
 
 
 
