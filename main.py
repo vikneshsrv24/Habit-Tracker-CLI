@@ -42,11 +42,22 @@ def summary():
 def update_status():
     for habit in habits:
         state=input(f"Did you complete {habit} today ? (type '1' for completed or '0' for not): ")
-        status[habit]=int(state)
         if state==1:
             streak[habit]=streak.get(habit,0)+1
         else:
             streak[habit]=0
+        status[habit]=int(state)
+<<<<<<< Updated upstream
+        # if state==1:
+        #     streak[habit]=streak.get(habit,0)+1
+        # else:
+        #     streak[habit]=0
+=======
+        if state==1:
+            streak[habit]=streak.get(habit,0)+1
+        else:
+            streak[habit]=0
+>>>>>>> Stashed changes
     save_data()
 
 # Saving data into json
@@ -56,17 +67,50 @@ def save_data():
 
 # Clear saved JSON memory
 def clear_memory():
+<<<<<<< Updated upstream
     habits.clear()
     status.clear()
     streak.clear()
     save_data()
     print("All Memory cleared !")
+=======
+    memory_clear=input("Are you sure to remove all the saved progress(Type 'y'/'n'): ")
+    if memory_clear.lower()=='y':
+        habits.clear()
+        status.clear()
+        streak.clear()
+        print("All Memory cleared !")
+    else:
+        return
+    save_data()
+    
+
+ # Edit an Habit
+def edit_habit():
+    print("From below which one habit you want to edit !")
+    for habit in habits:
+        print(habit)
+    edit=int(input('Enter the habit index you want to edit: '))
+    new_edit=input("Enter the name of the new habit: ").lower()
+    
+    old_habit=habits[edit]
+    habits[edit]=new_edit
+
+    status[new_edit]=status.pop(old_habit)
+    save_data()
+    print("Habit updated successfully !")
+
+>>>>>>> Stashed changes
 
 # View streaks
 def view_streaks():
     for habit in habits:
-        print(f"{habit} --> Streak:{streak.get(habit,0*'🔥')}")
+<<<<<<< Updated upstream
+        print(f"{habit} --> Streak:{streak.get(habit,0)*'🔥'}")
 
+=======
+        print(f"{habit} --> Streak:{streak.get(habit,0*'🔥')}")
+>>>>>>> Stashed changes
 
 
 # Main menu
@@ -79,7 +123,12 @@ while loop>0:
     print("3. Update Status")   
     print("4. View Summary")
     print("5. View Streaks")
+<<<<<<< Updated upstream
     print("6. Clear Saved Habits\n")        
+=======
+    print("6. Edit Habit")
+    print("7. Clear Saved Habits\n")        
+>>>>>>> Stashed changes
     option=int(input("What you wish to do ? [Type number from the options] : "))
     if option==1:
         add_habits()
@@ -95,9 +144,19 @@ while loop>0:
     
     elif option==5:
         view_streaks()
+<<<<<<< Updated upstream
     elif option==6:
         clear_memory()
 
+=======
+    
+    elif option==6:
+        edit_habit()
+    
+    elif option==7:
+        clear_memory()
+    
+>>>>>>> Stashed changes
     else:
         print("Not available input. Please run again !!!")
         loop=0
